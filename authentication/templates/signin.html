@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign In</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <style>
+        .container {
+            margin-top: 100px;
+            text-align: center;
+        }
+        .form-signin {
+            max-width: 400px;
+            padding: 15px;
+            margin: 0 auto;
+        }
+        .form-signin .form-control {
+            margin-bottom: 10px;
+        }
+        .btn-login {
+            background-color: blue;
+            color: white;
+            width: 100%;
+        }
+    </style>
+    <script>
+        function togglePasswordVisibility() {
+            var passwordField = document.getElementById('id_password');
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+            } else {
+                passwordField.type = 'password';
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <form class="form-signin" method="POST" action="{% url 'signin' %}">
+            {% csrf_token %}
+            <h2>Log in</h2>
+            {% if error_message %}
+                <p>{{ error_message }}</p>
+            {% endif %}
+            <input type="text" class="form-control" name="username" placeholder="Username" required autofocus>
+            <div class="input-group">
+                <input type="password" class="form-control" id="id_password" name="password" placeholder="Password" required>
+                <div class="input-group-append">
+                    <div class="input-group-text">
+                        <input type="checkbox" onclick="togglePasswordVisibility()">
+                        Show
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-login" type="submit">Login</button>
+        </form>
+        <h6>Not a user? <a href="{% url 'signup' %}">Create an account</a></h6>
+    </div>
+</body>
+</html>

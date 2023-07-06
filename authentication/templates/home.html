@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Computer Lab Management System</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <style>
+        .container {
+            margin-top: 100px;
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 50px;
+        }
+        .btn {
+            background-color: rgb(15, 15, 194);
+            color: white;
+            width: 200px;
+            height: 50px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>LAB MANAGEMENT SYSTEM</h1>
+        <a href="{% url 'signin' %}">
+            <button class="btn btn-primary">Sign In</button>
+        </a>
+        <a href="{% url 'signup' %}">
+            <button class="btn btn-primary">Sign Up</button>
+        </a>
+    </div>
+</body>
+</html>
