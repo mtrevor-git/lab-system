@@ -4,7 +4,7 @@
     <title>Student Page</title>
 </head>
 <body>
-    <h1>Welcome, {{ username }}</h1>
+    <h1>Welcome student, {{ username }}</h1>
     <p>Your role is: {{ role }}</p>
     <form action="{% url 'logout' %}" method="POST" style="display: inline;">
         {% csrf_token %}
